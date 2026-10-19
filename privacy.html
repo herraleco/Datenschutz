@@ -26,7 +26,7 @@
 <body>
 
 <h1>Datenschutzerklärung</h1>
-<p class="meta">Stand: Mai 2026 · NODE – Habit Network App</p>
+<p class="meta">Stand: Oktober 2026 (ab Version 0.3.0) · NODE – Habit Network App</p>
 
 <h2>Verantwortlicher</h2>
 <p>
@@ -39,15 +39,26 @@
 
 <h2>Lokale Daten</h2>
 <p>
-    Alle Gewohnheitsdaten (Name, Trigger, Aktivierungsdaten) werden ausschließlich lokal
+    Alle Gewohnheitsdaten (Name, Trigger, Aktivierungsdaten, Einstellungen) werden ausschließlich lokal
     auf deinem Gerät gespeichert (Android DataStore / SharedPreferences).
-    Es findet keine Übertragung an externe Server statt.
+    Es findet keine Übertragung an externe Server statt. NODE hat kein Nutzerkonto und enthält
+    keine Werbung, keine Analyse- und keine Tracking-Dienste.
+</p>
+<p>
+    Unter <em>Einstellungen → Daten → Alle Daten löschen</em> kannst du sämtliche lokal gespeicherten Daten
+    jederzeit selbst löschen; beim Deinstallieren der App werden sie ebenfalls entfernt.
 </p>
 
-<h2>Kontext-Signale</h2>
+<h2>Kontext-Erinnerungen</h2>
 <p>
-    Die App liest den Bildschirmstatus, den WLAN-Verbindungsstatus und den Ladestatus,
-    um lokale Benachrichtigungen zu steuern. Diese Daten verlassen dein Gerät zu keiner Zeit.
+    Für Erinnerungen nutzt die App den Android-Dienst WorkManager. Er prüft lokal auf deinem Gerät,
+    ob eine WLAN- bzw. unbegrenzte Netzverbindung besteht und ob das Gerät lädt.
+    Dabei werden weder WLAN-Namen noch dein Standort noch der Bildschirmstatus erfasst.
+    Diese Informationen verlassen dein Gerät zu keiner Zeit und werden nicht gespeichert.
+</p>
+<p>
+    Erinnerungen und ihre Schaltflächen („Erledigt“ / „Heute nicht“) sowie das Widget auf dem
+    Startbildschirm arbeiten ausschließlich mit den lokalen Daten auf deinem Gerät.
 </p>
 
 <h2>Newsletter (optional)</h2>
@@ -66,11 +77,11 @@
 
 <h2>Berechtigungen</h2>
 <ul>
-    <li><strong>INTERNET</strong> – für den optionalen Newsletter-Versand</li>
-    <li><strong>POST_NOTIFICATIONS</strong> – für Kontext-Reminder</li>
-    <li><strong>ACCESS_WIFI_STATE / ACCESS_NETWORK_STATE</strong> – zur Erkennung des Arbeits-Triggers</li>
-    <li><strong>SCHEDULE_EXACT_ALARM</strong> – für zeitgenaue Kontext-Signale</li>
-    <li><strong>RECEIVE_BOOT_COMPLETED</strong> – zum Wiederherstellen der Trigger nach Neustart</li>
+    <li><strong>INTERNET</strong> – nur für die optionale Newsletter-Anmeldung</li>
+    <li><strong>POST_NOTIFICATIONS</strong> – für Kontext-Erinnerungen (wird erst beim Einschalten abgefragt)</li>
+    <li><strong>ACCESS_NETWORK_STATE</strong> – um lokal zu prüfen, ob eine WLAN- bzw. unbegrenzte Verbindung besteht (Arbeits-Trigger)</li>
+    <li><strong>RECEIVE_BOOT_COMPLETED</strong> – damit geplante Erinnerungen einen Neustart überstehen</li>
+    <li><strong>WAKE_LOCK / FOREGROUND_SERVICE</strong> – technisch von WorkManager benötigt, um geplante Erinnerungen zuverlässig auszuführen</li>
 </ul>
 
 <h2>Deine Rechte</h2>
